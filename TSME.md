@@ -16,24 +16,18 @@ Monday 11–11:50am, ECE 2215
 
 ### Course Text
 
-There is no required text for this course. However, there are a number
-of useful texts that I recommend knowing about as references.
-Additionally, there will be some papers and book chapters to read for
-different weeks. Readings will be freely available or available through
-your access to the LSU Library.
+There is no required text for this seminar. However, we will focus on
+four publications that each illustrate one type of time series modeling
+appraoch. Additional recommended readings may be shared throughout the
+semester.
 
-Recommended texts (may be available for free electronically)
+Course materials will be shared via a Github repository. You do not need
+a Github account to access them, although you can be added as a user if
+you have and use a Github account. Please access the course materials
+via this link, and know that the material will be added and developed
+often.
 
-  - *Introduction to WinBUGS for Ecologists*, Marc Kery
-  - *Data Analysis Using Regression and Multilevel/Hierarchical Models*,
-    Gelman and Hill
-
-My teaching materials will be compiled into a bookdown document that
-will serve as the course text, to which I may refer. Please access the
-course text via this link, and know that the material will be added and
-developed often.
-
-Course text: <https://bookdown.org/steve_midway/BHME>
+Course Repository: <https://github.com/stevemidway/TSME-Spring-2020>
 
 ### Prerequisites
 
@@ -48,33 +42,25 @@ We will be working in a conference room (not a computer lab), and you
 are expected to bring a laptop to class. Although there may be days we
 do not use computers, it is best to anticipate using one, or to ask the
 prior class period about the need. Computers should be loaded with
-program `R`, ideally run through R Studio. You will also need to have
-the program JAGS loaded, although we will run it through R and not work
-directly in JAGS.
+program `R`, ideally run through R Studio.
 
   - Program R: <https://cran.r-project.org/>
   - R Studio: <https://www.rstudio.com/>
-  - JAGS: <http://mcmc-jags.sourceforge.net/>
 
 ### Course Objectives
 
-1.  Understand the need for hierarchical models used with ecological
-    data
-2.  Be able to develop, code, and interpret hierarchical models and
+1.  Understand the need for time series models used with ecological data
+2.  Be able to develop, code, and interpret basic time series models and
     their output
-3.  Become familiar with Bayesian approaches to statistics
 
 ### Course Structure
 
-This class will meet twice per week. We will work through a number of
-topics that are designed to help you become familiar with hierarchical
-models and Bayesian estimation procedures, such that you can eventually
-run these models on your own. Class time may be entirely lecture,
-entirely coding exercises, literature discussions, or any combination of
-these (and other) activities. I anticipate that we will get enough time
-in lecture for coding, which is a critical part of learning these
-models; however, we may develop a side “lab” or supplemental time during
-which additional coding may take place.
+This class will meet once per week. We will focus on four types of time
+series models: ARIMA, DLM, DFA, and GAMs. Each of the model types will
+be covered in 3 meeting periods that include one lecture-type period,
+one period focused on a reading, and one period for coding an example.
+We will not get in-depth with any model(s) because this is a seminar
+course and an overview of different time series models.
 
 ### Classroom Rules
 
@@ -161,10 +147,8 @@ building. Take your possessions with you.
 
 ### Assignments
 
-  - Exercises 1–4, 40% (10% each)
-  - Literature reviews, 20% (10% each)
-  - Research paper, 30%
-  - Participation, 10%
+  - Coding Exercises (4 total; 15% each), 60%
+  - Participation (including attendance), 40%
 
 ### Grades
 
@@ -184,48 +168,25 @@ modifications to the topics as the course materials develop, and we will
 devote varying amounts of time to each topic, based on interest and
 capacity.
 
-| Date           | Topic                                  | Reading(s) |
-| :------------- | :------------------------------------- | :--------- |
-| M August 26    | Introduction                           |            |
-| W August 28    | What are hierarchical models?          |            |
-| M September 2  | *No Class (Labor Day)*                 |            |
-| W September 4  | Introduction to Bayesian estimation    |            |
-| M September 9  | Shrinkage and centering                | 1          |
-| W September 11 | Priors                                 | 2          |
-| M September 16 | Intro to working in JAGS               | 3          |
-| W September 18 | Intro to working in JAGS               | 4          |
-| M September 23 | Varying intercept models               | 5          |
-| W September 25 | Varying intercept models               | 6          |
-| M September 30 | *No Class (Midway at conference)*      |            |
-| W October 2    | *No Class (Midway at conference)*      |            |
-| M October 7    | Varying slopes models                  | 7 and 8    |
-| W October 9    | Varying slopes models                  | 9 and 10   |
-| M October 14   | Varying coefficients models            | 11         |
-| W October 16   | Varying coefficients models            |            |
-| M October 21   | Modeling varying coefficients          |            |
-| W October 23   | Modeling varying coefficients          | 12         |
-| M October 28   | Non-linear hierarchical models         | 13         |
-| W October 30   | Non-linear hierarchical models         | 14         |
-| M November 4   | Generalized linear hierarchical models |            |
-| W November 6   | Generalized linear hierarchical models |            |
-| M November 11  | Model selection                        | 15         |
-| W November 13  | *No Class (Midway at conference)*      |            |
-| M November 18  | *No Class (Midway at conference)*      |            |
-| W November 20  | Flex                                   |            |
-| M November 25  | *No Class*                             |            |
-| W November 27  | *No Class*                             |            |
-| M December 2   | Site-Occupancy Model                   | 16         |
-| W December 4   | Binomial Mixture Model                 |            |
+| Date        | Topic                                                                                                   |
+| :---------- | :------------------------------------------------------------------------------------------------------ |
+| 13 Janaury  | Course Intro and ARIMA Intro                                                                            |
+| 20 Janaury  | OFF (MLK JR. Day [Suggested Reading](https://web.cn.edu/kwheeler/documents/Letter_Birmingham_Jail.pdf)) |
+| 27 Janaury  | ARIMA paper discussion                                                                                  |
+| 3 February  | ARIMA Coding                                                                                            |
+| 10 February | DLM Intro                                                                                               |
+| 17 February | DLM Reading                                                                                             |
+| 24 February | OFF (Mardi Gras)                                                                                        |
+| 2 March     | DLM Coding                                                                                              |
+| 9 March     | DFA Intro                                                                                               |
+| 16 March    | DFA Reading                                                                                             |
+| 23 March    | OFF (Spring Break)                                                                                      |
+| 30 March    | DFA Coding                                                                                              |
+| 6 April     | GAM Intro                                                                                               |
+| 13 April    | OFF? (Midway Away)                                                                                      |
+| 20 April    | GAM Reading                                                                                             |
+| 27 April    | GAM Coding                                                                                              |
 
 ## Readings
 
-1.  Stephens, P. A., Buskirk, S. W., & del Rio, C. M. (2007). Inference
-    in ecology and evolution. Trends in Ecology & Evolution, 22(4),
-    192–197.
-2.  Link, W. A., & Barker, R. J. (2009). Chapter 1 in *Bayesian
-    inference: with ecological applications*. Academic Press.
-3.  Kruschke, J. K. (2013). Bayesian estimation supersedes the *t* test.
-    Journal of Experimental Psychology: General, 142(2), 573.
-4.  Lele, S. R., & Dennis, B. (2009). Bayesian methods for hierarchical
-    models: are ecologists making a Faustian bargain? Ecological
-    Applications, 19(3), 581–584.
+1.
