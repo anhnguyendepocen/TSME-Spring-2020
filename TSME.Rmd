@@ -13,6 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ### Course Information
 Spring 2020\
 OCS 7001, Section 5\
+1 credit\
 Dr. Steve Midway, <smidway@lsu.edu>\
 Dr. Mike Dance, <mdance1@lsu.edu>
 
@@ -40,7 +41,7 @@ We will be working in a conference room (not a computer lab), and you are expect
 2. Be able to develop, code, and interpret basic time series models and their output
 
 ### Course Structure
-This class will meet once per week. We will focus on four types of time series models: ARIMA, DLM, DFA, and GAMs. Each of the model types will be covered in 3 meeting periods that include one lecture-type period, one period focused on a reading, and one period for coding an example. We will not get in-depth with any model(s) because this is a seminar course and an overview of different time series models. 
+This class will meet once per week. We will focus on four types of time series models: **ARIMA** (Auto Regressive Integrated Moving Average), **DLM** (Dynamic Linear Model), **DFA** (Dynamic Factor analysis), and **GAM** (Generalized Additive Model). Each of the model types will be covered in 3 meeting periods that include one lecture-type period, one period focused on a reading, and one period for coding an example. We will not get in-depth with any model(s) because this is a seminar course and only an overview of different time series models. 
 
 ### Classroom Rules
 Students are expected to adhere to LSU policy concerning conduct. Plagiarism or cheating will not be tolerated. See the current LSU catalogue for details. If you copy from one of your classmates, your score for the activity in question will be zero (= no credit). (http://saa.lsu.edu/code-student-conduct)

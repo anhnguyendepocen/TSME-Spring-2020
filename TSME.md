@@ -7,6 +7,7 @@ Spring 2020
 
 Spring 2020  
 OCS 7001, Section 5  
+1 credit  
 Dr. Steve Midway, <smidway@lsu.edu>  
 Dr. Mike Dance, <mdance1@lsu.edu>
 
@@ -56,11 +57,13 @@ program `R`, ideally run through R Studio.
 ### Course Structure
 
 This class will meet once per week. We will focus on four types of time
-series models: ARIMA, DLM, DFA, and GAMs. Each of the model types will
-be covered in 3 meeting periods that include one lecture-type period,
-one period focused on a reading, and one period for coding an example.
-We will not get in-depth with any model(s) because this is a seminar
-course and an overview of different time series models.
+series models: **ARIMA** (Auto Regressive Integrated Moving Average),
+**DLM** (Dynamic Linear Model), **DFA** (Dynamic Factor analysis), and
+**GAM** (Generalized Additive Model). Each of the model types will be
+covered in 3 meeting periods that include one lecture-type period, one
+period focused on a reading, and one period for coding an example. We
+will not get in-depth with any model(s) because this is a seminar course
+and only an overview of different time series models.
 
 ### Classroom Rules
 
