@@ -11,12 +11,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ### Course Information
-Fall 2019\
-OCS 7001, Section 3\
-Dr. Steve Midway, <smidway@lsu.edu>
+Spring 2020\
+OCS 7001, Section 5\
+Dr. Steve Midway, <smidway@lsu.edu>\
+Dr. Mike Dance, <mdance1@lsu.edu>
 
 ### Meeting time 
-Monday and Wednesday 9–10:20pm, ECE 3178
+Monday 11–11:50am, ECE 2215
 
 ### Course Text
 There is no required text for this course. However, there are a number of useful texts that I recommend knowing about as references. Additionally, there will be some papers and book chapters to read for different weeks. Readings will be freely available or available through your access to the LSU Library. 

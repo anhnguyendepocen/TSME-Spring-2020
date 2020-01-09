@@ -5,13 +5,14 @@ Spring 2020
 
 ### Course Information
 
-Fall 2019  
-OCS 7001, Section 3  
-Dr. Steve Midway, <smidway@lsu.edu>
+Spring 2020  
+OCS 7001, Section 5  
+Dr. Steve Midway, <smidway@lsu.edu>  
+Dr. Mike Dance, <mdance1@lsu.edu>
 
 ### Meeting time
 
-Monday and Wednesday 9–10:20pm, ECE 3178
+Monday 11–11:50am, ECE 2215
 
 ### Course Text
 
