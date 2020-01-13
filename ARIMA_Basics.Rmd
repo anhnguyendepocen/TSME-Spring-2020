@@ -23,6 +23,16 @@ knitr::include_graphics("dixon.png")
 <br>
 <br>
 
+> "Time is what keeps everything from happening at once." -- Ray Cummings
+
+```{r echo=FALSE, out.width = '25%', fig.align = 'right'}
+knitr::include_graphics("cummings.jpg")
+```
+
+<br>
+<br>
+<br>
+
 > "I can tell your future, Look what's in your hand." --Robert Hunter
 
 ```{r echo=FALSE, out.width = '30%', fig.align = 'right'}
@@ -33,7 +43,7 @@ knitr::include_graphics("hunter.png")
 <br>
 <br>
 
-> “It’s like linear regression using least squares, but it is much harder and the results are not explicit.” 
+> “It’s like linear regression using least squares, but it is much harder and the results are not explicit.” --David Stoffer
 
 ```{r echo=FALSE, out.width = '15%', fig.align = 'right'}
 knitr::include_graphics("tsaa.png")

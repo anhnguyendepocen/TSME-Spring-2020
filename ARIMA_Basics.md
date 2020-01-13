@@ -13,6 +13,13 @@ Dixon
 
 <br> <br> <br>
 
+> “Time is what keeps everything from happening at once.” – Ray
+Cummings
+
+<img src="cummings.jpg" width="25%" style="display: block; margin: auto 0 auto auto;" />
+
+<br> <br> <br>
+
 > “I can tell your future, Look what’s in your hand.” –Robert
 Hunter
 
@@ -21,8 +28,8 @@ Hunter
 <br> <br> <br>
 
 > “It’s like linear regression using least squares, but it is much
-> harder and the results are not
-explicit.”
+> harder and the results are not explicit.” –David
+Stoffer
 
 <img src="tsaa.png" width="15%" style="display: block; margin: auto 0 auto auto;" />
 
@@ -193,7 +200,7 @@ W\_{t-1}](https://latex.codecogs.com/png.latex?X_t%20%3D%20%5Cphi%20X_%7Bt-1%7D%
 **ARMA for stationary data
 only**
 
-![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-6-3.png)<!-- -->
+![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-7-2.png)<!-- -->![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-7-3.png)<!-- -->
 
 ## Understanding the model orders
 
@@ -229,27 +236,27 @@ is some subjectivity to their interpretation\!**
 Using simulated data, let’s see some examples of ACF and PACF plots with
 known ARMA data.
 
-![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 The above plots were generated from simulated data for an AR(1) model.
 We can see that the ACF tails off and the PACF cuts off abruptly after
 1. Based on the table above, our diagnostics describe an AR(*q*), where
 *q* = 1 as suggested by the cut off.
 
-![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 These ACF and PACF plots were generated based on an AR(2) model You
 should be able ot tell that they fit the description in the table above
 to be an AR(*p*) model, but with 2 significant lag effects in the PACF,
 we can correctly assume that the AR order is 2.
 
-![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 Here we see plots that show a cut off in the ACF after 1 and a PACF that
 appears to tail off. These characteristics suggest an MA(*q*) model, and
 the cutoff at 1in the ACF further points to an MA(1) model.
 
-![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 Finally, these are diagnostic plots from an ARMA model. You might be
 able to tell that both appear to tail off. (If that is not clear, there
@@ -290,7 +297,7 @@ simulation runs may result in different diagnostic plots.)
     ## final  value 0.020841 
     ## converged
 
-![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
     ## $fit
     ## 
