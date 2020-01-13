@@ -39,6 +39,7 @@ models?
         non-independent; e.g., a measurement at \(t_2\) is related to a
         measurment at \(t_1\), or, the conditions of the measure at
         \(t_1\) will influence the measure at \(t_2\)
+    \[y=x\]
   - Why do we need time series models?
       - We want to describe the time series phenomenon, forcast or
         predict the future, and need to account for error structure in
@@ -49,7 +50,7 @@ models?
 
 *Time series: we regress today against yesterday*
 
-## Time Series Terms
+## Some Time Series Terms
 
 **trend** – a general, systematic, and non-repeating change
 
@@ -57,6 +58,9 @@ models?
 
 **smoothing** – local averaging of data to help with errors and improve
 fitting
+
+**autoregression** – the need to regress observations against previous
+(lagged) observations
 
 **autocorrelation** – the preserved signal that generates similarity
 between observations and lagging

@@ -47,6 +47,8 @@ knitr::include_graphics("djia.png")
   - Sequences of measurements that follow a non-random order
   - Measurements are related (correlated) to each other and non-independent; e.g., a measurement at $t_2$ is related to a measurment at $t_1$, or, the conditions of the measure at $t_1$ will influence the measure at $t_2$
   
+  $$y=x$$
+  
 - Why do we need time series models?
   - We want to describe the time series phenomenon, forcast or predict the future, and need to account for error structure in the data
   - Many statistical tools, like the linear model, assume no auto-correlation or statistical independence of the errors, which is violated with time series data
