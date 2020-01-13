@@ -5,6 +5,8 @@ Spring 2020
 
 ## What is Time?
 
+### The Philosophical Interpretation
+
 > “You cannot think of eternity, Think of it like time, You try to
 > think, You try to count, You just mess up your mind.” –Willie
 Dixon
@@ -13,12 +15,26 @@ Dixon
 
 <br> <br> <br>
 
+### The Practical Interpretation
+
 > “Time is what keeps everything from happening at once.” – Ray
 Cummings
 
 <img src="cummings.jpg" width="25%" style="display: block; margin: auto 0 auto auto;" />
 
 <br> <br> <br>
+
+### The Non-Believer Interpretation
+
+> “’Cause tomorrow’s just another day, And I don’t believe in time”
+> –Hootie and the
+Blowfish
+
+<img src="hootie.jpg" width="30%" style="display: block; margin: auto 0 auto auto;" />
+
+<br> <br> <br>
+
+### The Auto-Regressive Poetic Interpretation
 
 > “I can tell your future, Look what’s in your hand.” –Robert
 Hunter
@@ -27,11 +43,15 @@ Hunter
 
 <br> <br> <br>
 
+### The Statistician’s Interpretation
+
 > “It’s like linear regression using least squares, but it is much
 > harder and the results are not explicit.” –David
 Stoffer
 
-<img src="tsaa.png" width="15%" style="display: block; margin: auto 0 auto auto;" />
+<img src="stoffer.jpg" width="25%" style="display: block; margin: auto 0 auto auto;" />
+
+<br> <br> <br>
 
 ## Background to Time Series
 
@@ -191,7 +211,7 @@ W\_{t-1}](https://latex.codecogs.com/png.latex?X_t%20%3D%20%5Cphi%20X_%7Bt-1%7D%
     walk)
   - If your data are non-stationary and heteroscedastic suggest log
     transform to stabilize the variance and then difference to stabilize
-    the trend
+    the trend (see Random Walk example below)
   - Differencing adds the **I** to ARMA and makes it an ARIMA model; in
     other words, ARMA models are for data that are already stationary
   - If the differenced data has ARMA properties, then continue with
@@ -200,26 +220,23 @@ W\_{t-1}](https://latex.codecogs.com/png.latex?X_t%20%3D%20%5Cphi%20X_%7Bt-1%7D%
 **ARMA for stationary data
 only**
 
-![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-7-2.png)<!-- -->![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-7-3.png)<!-- -->
+![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-8-2.png)<!-- -->![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-8-3.png)<!-- -->
 
-## Understanding the model orders
+## Understanding the Model Orders
 
-You cannot typically determine ARMA(*p*,*q*) structure visually, so you
-will need to diagnose, examine, and figure it out.
-
-Auto-Correlation (ACF) and Partial Auto-Correlation are the diagostic
-tools used to identify model orders.
-
-ACF displays the correlation between today and previous time points. ACF
-interprets MA order.
-
-PACF displays the correlation between today and previous time points,
-but accounts for (and removes the effect of) past correlations. PACF is
-the “real” correlation because it controls for outside influences. PACF
-interprets AR order.
-
-Although ACF and PACF display the correlations, there is still a bit of
-estimation and evaluation that you will need to consider.
+  - You cannot typically determine ARMA(*p*,*q*) structure visually, so
+    you will need to diagnose, examine, and figure it out
+  - Auto-Correlation (ACF) and Partial Auto-Correlation are the
+    diagostic tools used to identify model orders
+  - ACF displays the correlation between today and previous time points;
+    ACF interprets MA order
+  - PACF displays the correlation between today and previous time
+    points, but accounts for (and removes the effect of) past
+    correlations
+  - PACF is the “real” correlation because it controls for outside
+    influences; PACF interprets AR order
+  - Although ACF and PACF display the correlations, there is still a bit
+    of estimation and evaluation that you will need to consider.
 
 This table will help interprect ACF anf PACF output. This table is taken
 from Schumway and Stoffer (20XX).
@@ -236,27 +253,27 @@ is some subjectivity to their interpretation\!**
 Using simulated data, let’s see some examples of ACF and PACF plots with
 known ARMA data.
 
-![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 The above plots were generated from simulated data for an AR(1) model.
-We can see that the ACF tails off and the PACF cuts off abruptly after
-1. Based on the table above, our diagnostics describe an AR(*q*), where
-*q* = 1 as suggested by the cut off.
+We can see that the ACF tails off and the PACF cuts off abruptly after 1
+lag. Based on the table above, our diagnostics describe an AR(*q*),
+where *q* = 1 as suggested by the cut off.
 
-![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 These ACF and PACF plots were generated based on an AR(2) model You
 should be able ot tell that they fit the description in the table above
 to be an AR(*p*) model, but with 2 significant lag effects in the PACF,
 we can correctly assume that the AR order is 2.
 
-![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 Here we see plots that show a cut off in the ACF after 1 and a PACF that
 appears to tail off. These characteristics suggest an MA(*q*) model, and
 the cutoff at 1in the ACF further points to an MA(1) model.
 
-![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 Finally, these are diagnostic plots from an ARMA model. You might be
 able to tell that both appear to tail off. (If that is not clear, there
@@ -274,30 +291,31 @@ simulation runs may result in different diagnostic plots.)
 
 <!-- end list -->
 
-    ## initial  value 1.100624 
-    ## iter   2 value 0.014798
-    ## iter   3 value 0.012957
-    ## iter   4 value 0.012842
-    ## iter   5 value 0.012601
-    ## iter   6 value 0.012590
-    ## iter   7 value 0.012590
-    ## iter   8 value 0.012590
-    ## iter   9 value 0.012590
-    ## iter   9 value 0.012590
-    ## iter   9 value 0.012590
-    ## final  value 0.012590 
+    ## initial  value 0.674653 
+    ## iter   2 value -0.055096
+    ## iter   3 value -0.064343
+    ## iter   4 value -0.066561
+    ## iter   5 value -0.070968
+    ## iter   6 value -0.070970
+    ## iter   6 value -0.070970
+    ## final  value -0.070970 
     ## converged
-    ## initial  value 0.020993 
-    ## iter   2 value 0.020991
-    ## iter   3 value 0.020936
-    ## iter   4 value 0.020843
-    ## iter   5 value 0.020841
-    ## iter   6 value 0.020841
-    ## iter   6 value 0.020841
-    ## final  value 0.020841 
+    ## initial  value -0.013426 
+    ## iter   2 value -0.014557
+    ## iter   3 value -0.020773
+    ## iter   4 value -0.022728
+    ## iter   5 value -0.022834
+    ## iter   6 value -0.022856
+    ## iter   7 value -0.022856
+    ## iter   8 value -0.022856
+    ## iter   9 value -0.022856
+    ## iter  10 value -0.022856
+    ## iter  10 value -0.022856
+    ## iter  10 value -0.022856
+    ## final  value -0.022856 
     ## converged
 
-![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
 
     ## $fit
     ## 
@@ -308,27 +326,27 @@ simulation runs may result in different diagnostic plots.)
     ## 
     ## Coefficients:
     ##           ar1    xmean
-    ##       -0.9423  -0.0471
-    ## s.e.   0.0315   0.0523
+    ##       -0.9078  -0.0181
+    ## s.e.   0.0465   0.0510
     ## 
-    ## sigma^2 estimated as 1.02:  log likelihood = -143.98,  aic = 293.96
+    ## sigma^2 estimated as 0.9389:  log likelihood = -139.61,  aic = 285.22
     ## 
     ## $degrees_of_freedom
     ## [1] 98
     ## 
     ## $ttable
     ##       Estimate     SE  t.value p.value
-    ## ar1    -0.9423 0.0315 -29.9285    0.00
-    ## xmean  -0.0471 0.0523  -0.9007    0.37
+    ## ar1    -0.9078 0.0465 -19.5378  0.0000
+    ## xmean  -0.0181 0.0510  -0.3547  0.7236
     ## 
     ## $AIC
-    ## [1] 2.93956
+    ## [1] 2.852165
     ## 
     ## $AICc
-    ## [1] 2.940797
+    ## [1] 2.853402
     ## 
     ## $BIC
-    ## [1] 3.017715
+    ## [1] 2.93032
 
 The above is a typical set of plots that can be used to check model fit.
 In the top panel, the standardized residuals appear to center on 0 with

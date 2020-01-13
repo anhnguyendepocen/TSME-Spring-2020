@@ -13,6 +13,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## What is Time?
 
+### The Philosophical Interpretation
+
 > "You cannot think of eternity, Think of it like time, You try to think, You try to count, You just mess up your mind." --Willie Dixon
 
 ```{r echo=FALSE, out.width = '20%', fig.align = 'right'}
@@ -22,6 +24,8 @@ knitr::include_graphics("dixon.png")
 <br>
 <br>
 <br>
+
+### The Practical Interpretation
 
 > "Time is what keeps everything from happening at once." -- Ray Cummings
 
@@ -33,6 +37,20 @@ knitr::include_graphics("cummings.jpg")
 <br>
 <br>
 
+### The Non-Believer Interpretation
+
+> "'Cause tomorrow's just another day, And I don't believe in time" --Hootie and the Blowfish
+
+```{r echo=FALSE, out.width = '30%', fig.align = 'right'}
+knitr::include_graphics("hootie.jpg")
+```
+
+<br>
+<br>
+<br>
+
+### The Auto-Regressive Poetic Interpretation
+
 > "I can tell your future, Look what's in your hand." --Robert Hunter
 
 ```{r echo=FALSE, out.width = '30%', fig.align = 'right'}
@@ -43,11 +61,17 @@ knitr::include_graphics("hunter.png")
 <br>
 <br>
 
+### The Statistician's Interpretation
+
 > “It’s like linear regression using least squares, but it is much harder and the results are not explicit.” --David Stoffer
 
-```{r echo=FALSE, out.width = '15%', fig.align = 'right'}
-knitr::include_graphics("tsaa.png")
+```{r echo=FALSE, out.width = '25%', fig.align = 'right'}
+knitr::include_graphics("stoffer.jpg")
 ```
+
+<br>
+<br>
+<br>
 
 ## Background to Time Series
 
@@ -156,7 +180,7 @@ $$X_t = \phi X_{t-1} + W_t + \theta W_{t-1}$$
 - You need to know if your data are stationary or non-stationary before starting
 - If your data are stationary, you can easily estimate mean and use that for understanding correlation; in other words, we can lag observations because we assume the underlying mean is not changing, and we can use different lags
 - If your data are not stationary, you can *difference* ($x_t - x_{t1}$) and then model the differenced data (e.g., random walk)
-- If your data are non-stationary and heteroscedastic suggest log transform to stabilize the variance and then difference to stabilize the trend
+- If your data are non-stationary and heteroscedastic suggest log transform to stabilize the variance and then difference to stabilize the trend (see Random Walk example below)
 - Differencing adds the **I** to ARMA and makes it an ARIMA model; in other words, ARMA models are for data that are already stationary
 - If the differenced data has ARMA properties, then continue with ARIMA
 
@@ -171,16 +195,13 @@ plot(log(rw), las = 1, ylab = "Observations", main = "log(Random Walk)")
 plot(diff(log(rw)), las = 1, ylab = "Observations", main = "diff(log(Random Walk))")
 ```
 
-## Understanding the model orders
-You cannot typically determine ARMA(*p*,*q*) structure visually, so you will need to diagnose, examine, and figure it out.
-
-Auto-Correlation (ACF) and Partial Auto-Correlation are the diagostic tools used to identify model orders.
-
-ACF displays the correlation between today and previous time points. ACF interprets MA order.
-
-PACF displays the correlation between today and previous time points, but accounts for (and removes the effect of) past correlations. PACF is the "real" correlation because it controls for outside influences. PACF interprets AR order.
-
-Although ACF and PACF display the correlations, there is still a bit of estimation and evaluation that you will need to consider.
+## Understanding the Model Orders
+- You cannot typically determine ARMA(*p*,*q*) structure visually, so you will need to diagnose, examine, and figure it out
+- Auto-Correlation (ACF) and Partial Auto-Correlation are the diagostic tools used to identify model orders
+- ACF displays the correlation between today and previous time points; ACF interprets MA order
+- PACF displays the correlation between today and previous time points, but accounts for (and removes the effect of) past correlations
+- PACF is the "real" correlation because it controls for outside influences; PACF interprets AR order
+- Although ACF and PACF display the correlations, there is still a bit of estimation and evaluation that you will need to consider.
 
 This table will help interprect ACF anf PACF output. This table is taken from Schumway and Stoffer (20XX).
 
@@ -196,16 +217,18 @@ Using simulated data, let's see some examples of ACF and PACF plots with known A
 
 ```{r, echo=F}
 library(astsa)
+set.seed(6)
 x <- arima.sim(model = list(order = c(1, 0, 0), ar = -.9), n = 100)
 par(mfrow=c(1,2))
 acf(x,main = "AR(1)")
 pacf(x,main = "AR(1)")
 ```
 
-The above plots were generated from simulated data for an AR(1) model. We can see that the ACF tails off and the PACF cuts off abruptly after 1. Based on the table above, our diagnostics describe an AR(*q*), where *q* = 1 as suggested by the cut off. 
+The above plots were generated from simulated data for an AR(1) model. We can see that the ACF tails off and the PACF cuts off abruptly after 1 lag. Based on the table above, our diagnostics describe an AR(*q*), where *q* = 1 as suggested by the cut off. 
 
 ```{r, echo=F}
-x2 <- arima.sim(model = list(order = c(2, 0, 0), ar = c(1.5,-.9)), n = 100)
+set.seed(6)
+x2 <- arima.sim(model = list(order = c(2, 0, 0), ar = c(1,-.5)), n = 100)
 par(mfrow=c(1,2))
 acf(x2,main = "AR(2)")
 pacf(x2,main = "AR(2)")
@@ -214,7 +237,8 @@ pacf(x2,main = "AR(2)")
 These ACF and PACF plots were generated based on an AR(2) model You should be able ot tell that they fit the description in the table above to be an AR(*p*) model, but with 2 significant lag effects in the PACF, we can correctly assume that the AR order is 2. 
 
 ```{r, echo=F}
-x3 <- arima.sim(model = list(order = c(0, 0, 1), ma = .5), n = 100)
+set.seed(6)
+x3 <- arima.sim(model = list(order = c(0, 0, 1), ma = .9), n = 100)
 par(mfrow=c(1,2))
 acf(x3,main = "MA(1)")
 pacf(x3,main = "MA(1)")
@@ -223,7 +247,8 @@ pacf(x3,main = "MA(1)")
 Here we see plots that show a cut off in the ACF after 1 and a PACF that appears to tail off. These characteristics suggest an MA(*q*) model, and the cutoff at 1in the ACF further points to an MA(1) model. 
 
 ```{r, echo=F}
-x4 <- arima.sim(model = list(order = c(1, 0, 1), ar = -0.5, ma = 0.9), n = 100)
+set.seed(5)
+x4 <- arima.sim(model = list(order = c(1, 0, 1), ar = -0.3, ma = 0.5), n = 100)
 par(mfrow=c(1,2))
 acf(x4,main = "ARMA(1,1)")
 pacf(x4,main = "ARMA(1,1)")
