@@ -36,10 +36,16 @@ models?
   - What is time series data?
       - Sequences of measurements that follow a non-random order
       - Measurements are related (correlated) to each other and
-        non-independent; e.g., a measurement at \(t_2\) is related to a
-        measurment at \(t_1\), or, the conditions of the measure at
-        \(t_1\) will influence the measure at \(t_2\)
-    \[y=x\]
+        non-independent; e.g., a measurement at
+        ![t\_2](https://latex.codecogs.com/png.latex?t_2 "t_2") is
+        related to a measurment at
+        ![t\_1](https://latex.codecogs.com/png.latex?t_1 "t_1"), or, the
+        conditions of the measure at
+        ![t\_1](https://latex.codecogs.com/png.latex?t_1 "t_1") will
+        influence the measure at
+        ![t\_2](https://latex.codecogs.com/png.latex?t_2 "t_2")
+      
+    ![y=x](https://latex.codecogs.com/png.latex?y%3Dx "y=x")  
   - Why do we need time series models?
       - We want to describe the time series phenomenon, forcast or
         predict the future, and need to account for error structure in
@@ -68,7 +74,7 @@ observations
 
 <img src="keeling.png" width="50%" style="display: block; margin: auto;" />
 
-## ARIMA(\(p\),\(d\),\(q\)) models
+## ARIMA(![p](https://latex.codecogs.com/png.latex?p "p"),![d](https://latex.codecogs.com/png.latex?d "d"),![q](https://latex.codecogs.com/png.latex?q "q")) models
 
 ARIMA – **A**uto**R**egressive **I**ntegrated **M**oving **A**verage
 models (also ARMA models)
@@ -80,51 +86,78 @@ Stationary assumption
 3.  Covariance of the ts should be constnt (not a function of time)
 
 There are tests for stationarity and *differencing*, *transformations*,
-and other approaches to make non-stationary time series stationary.
+and other approaches to make non-stationary time series
+stationary.
 
-## (\(p\),\(d\),\(q\)) ?
+## (![p](https://latex.codecogs.com/png.latex?p "p"),![d](https://latex.codecogs.com/png.latex?d "d"),![q](https://latex.codecogs.com/png.latex?q "q")) ?
 
 ARIMA models are typically accompanied by three numbers that are refered
-to as (\(p\),\(d\),\(q\))
+to as (![p](https://latex.codecogs.com/png.latex?p
+"p"),![d](https://latex.codecogs.com/png.latex?d
+"d"),![q](https://latex.codecogs.com/png.latex?q "q"))
 
 Each of these corresponds to part of the ARIMA model that will be
 explored in more detail.
 
-  - AR(\(p\)) where \(p\) indicates the order of the autoregressive term
+  - AR(![p](https://latex.codecogs.com/png.latex?p "p")) where
+    ![p](https://latex.codecogs.com/png.latex?p "p") indicates the order
+    of the autoregressive term
 
-  - I(\(d\)) where \(d\) indicates the amount of differencing (if
-    differencing)
+  - I(![d](https://latex.codecogs.com/png.latex?d "d")) where
+    ![d](https://latex.codecogs.com/png.latex?d "d") indicates the
+    amount of differencing (if differencing)
 
-  - MA(\(q\)) where \(q\) indicates the order of the moving average
+  - MA(![q](https://latex.codecogs.com/png.latex?q "q")) where
+    ![q](https://latex.codecogs.com/png.latex?q "q") indicates the order
+    of the moving average
 
 *If all three terms = 0, then you don’t have a time series model. At
 least one of the AR or MA terms needs to be 1 as a minimum for a time
 series model.*
 
-## AR(\(p\))
+## AR(![p](https://latex.codecogs.com/png.latex?p "p"))
 
   - AutoRegressive refers to the serially-correlated measurements and
     the fact that the model estimates a coefficent(s) for this (lag)
     effect.
-  - The notation \(p\) indicates the *order* or dimension of the
-    autoregressive component
-      - When \(p=0\) there is no dependence and the process is often
-        referred to as *white noise*
-      - Typically \(p=1\) is the minimal \(p\) for an ARMA model
+  - The notation ![p](https://latex.codecogs.com/png.latex?p "p")
+    indicates the *order* or dimension of the autoregressive component
+      - When ![p=0](https://latex.codecogs.com/png.latex?p%3D0 "p=0")
+        there is no dependence and the process is often referred to as
+        *white noise*
+      - Typically ![p=1](https://latex.codecogs.com/png.latex?p%3D1
+        "p=1") is the minimal
+        ![p](https://latex.codecogs.com/png.latex?p "p") for an ARMA
+        model
 
 ## AR(*p*) notation
 
-Example AR(3)
-notation
+Example AR(3) notation
 
-\[x_t = \beta_0 + \beta_1 x_{t-1} + \beta_2 x_{t-2} + \beta_p x_{t-p} + \epsilon\]
+  
+![x\_t = \\beta\_0 + \\beta\_1 x\_{t-1} + \\beta\_2 x\_{t-2} + \\beta\_p
+x\_{t-p} +
+\\epsilon](https://latex.codecogs.com/png.latex?x_t%20%3D%20%5Cbeta_0%20%2B%20%5Cbeta_1%20x_%7Bt-1%7D%20%2B%20%5Cbeta_2%20x_%7Bt-2%7D%20%2B%20%5Cbeta_p%20x_%7Bt-p%7D%20%2B%20%5Cepsilon
+"x_t = \\beta_0 + \\beta_1 x_{t-1} + \\beta_2 x_{t-2} + \\beta_p x_{t-p} + \\epsilon")  
 
-  - \(x_t\) is obervation at time \(t\)
-  - \(\beta_0\) is the intercept
-  - \(x_{t-1}\), \(x_{t-2}\), \(x_{t-p}\) are the prior obervations
-  - \(\beta_1\), \(\beta_2\), \(\beta_p\) are the autoregressive
-    coefficients (model parameters)
-  - \(\epsilon\) common error component
+  - ![x\_t](https://latex.codecogs.com/png.latex?x_t "x_t") is
+    obervation at time ![t](https://latex.codecogs.com/png.latex?t "t")
+  - ![\\beta\_0](https://latex.codecogs.com/png.latex?%5Cbeta_0
+    "\\beta_0") is the intercept
+  - ![x\_{t-1}](https://latex.codecogs.com/png.latex?x_%7Bt-1%7D
+    "x_{t-1}"),
+    ![x\_{t-2}](https://latex.codecogs.com/png.latex?x_%7Bt-2%7D
+    "x_{t-2}"),
+    ![x\_{t-p}](https://latex.codecogs.com/png.latex?x_%7Bt-p%7D
+    "x_{t-p}") are the prior obervations
+  - ![\\beta\_1](https://latex.codecogs.com/png.latex?%5Cbeta_1
+    "\\beta_1"),
+    ![\\beta\_2](https://latex.codecogs.com/png.latex?%5Cbeta_2
+    "\\beta_2"),
+    ![\\beta\_p](https://latex.codecogs.com/png.latex?%5Cbeta_p
+    "\\beta_p") are the autoregressive coefficients (model parameters)
+  - ![\\epsilon](https://latex.codecogs.com/png.latex?%5Cepsilon
+    "\\epsilon") common error component
 
 ## AR(*p*) examples
 
@@ -135,10 +168,11 @@ plot.ts(x)
 
 ![](ARIMA_Basics_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
-## MA(\(q\))
+## MA(![q](https://latex.codecogs.com/png.latex?q "q"))
 
   - Moving Average refers to the serially-correlated error and the fact
     that the model estimates a coefficent(s) for this (lag) effect.
-  - The notation \(q\) indicates the order of the MA
+  - The notation ![q](https://latex.codecogs.com/png.latex?q "q")
+    indicates the order of the MA
     term
   - <http://people.cs.pitt.edu/~milos/courses/cs3750/lectures/class16.pdf>

@@ -2,7 +2,9 @@
 title: "ARIMA Basics"
 author: "Steve Midway"
 date: "Spring 2020"
-output: github_document
+output:
+  github_document:
+    pandoc_args: --webtex
 ---
 
 ```{r setup, include=FALSE}
