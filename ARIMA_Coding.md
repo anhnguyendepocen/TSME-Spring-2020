@@ -16,7 +16,7 @@ it will need to be built on.
 library(astsa) # Applied Statistical Time Series Analysis
 ```
 
-### ’Time Series Objects
+### Time Series Objects
 
 When working with time series data in R, we typically want to have the
 observations in a time series object, or `ts()`.
