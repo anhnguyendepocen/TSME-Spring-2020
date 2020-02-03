@@ -205,30 +205,30 @@ acf2(x.ar2)
 
     ##         ACF  PACF
     ##  [1,]  0.86  0.86
-    ##  [2,]  0.53 -0.78
-    ##  [3,]  0.14 -0.02
-    ##  [4,] -0.20  0.00
-    ##  [5,] -0.42 -0.01
-    ##  [6,] -0.50 -0.04
-    ##  [7,] -0.45 -0.06
-    ##  [8,] -0.31  0.04
-    ##  [9,] -0.13 -0.03
-    ## [10,]  0.03 -0.01
-    ## [11,]  0.15  0.02
-    ## [12,]  0.22  0.08
-    ## [13,]  0.25  0.10
-    ## [14,]  0.25  0.03
-    ## [15,]  0.21 -0.08
-    ## [16,]  0.13 -0.07
-    ## [17,]  0.02 -0.04
-    ## [18,] -0.10  0.03
-    ## [19,] -0.21 -0.04
-    ## [20,] -0.28 -0.11
-    ## [21,] -0.30 -0.05
-    ## [22,] -0.27 -0.01
-    ## [23,] -0.21 -0.12
-    ## [24,] -0.11  0.08
-    ## [25,]  0.00 -0.05
+    ##  [2,]  0.52 -0.83
+    ##  [3,]  0.11  0.03
+    ##  [4,] -0.25  0.02
+    ##  [5,] -0.48 -0.03
+    ##  [6,] -0.56 -0.15
+    ##  [7,] -0.49  0.05
+    ##  [8,] -0.33 -0.04
+    ##  [9,] -0.13 -0.07
+    ## [10,]  0.05  0.12
+    ## [11,]  0.19 -0.01
+    ## [12,]  0.28  0.06
+    ## [13,]  0.30  0.01
+    ## [14,]  0.27 -0.02
+    ## [15,]  0.19  0.01
+    ## [16,]  0.08 -0.05
+    ## [17,] -0.05 -0.01
+    ## [18,] -0.16 -0.06
+    ## [19,] -0.24 -0.01
+    ## [20,] -0.28 -0.19
+    ## [21,] -0.29 -0.11
+    ## [22,] -0.27 -0.02
+    ## [23,] -0.21  0.03
+    ## [24,] -0.12 -0.03
+    ## [25,]  0.01  0.06
 
 Hopefully you can start to see how this data might be AR(2) (ignoring
 the fact that you know it was randomly generated to characterize AR(2)
@@ -239,34 +239,31 @@ fits look like.
 sarima(x.ar2, p = 2, d = 0, q = 0)
 ```
 
-    ## initial  value 1.224650 
-    ## iter   2 value 1.093224
-    ## iter   3 value 0.655450
-    ## iter   4 value 0.410282
-    ## iter   5 value 0.196859
-    ## iter   6 value 0.039143
-    ## iter   7 value 0.019996
-    ## iter   8 value 0.001533
-    ## iter   9 value 0.001500
-    ## iter  10 value 0.001441
-    ## iter  11 value 0.001404
-    ## iter  12 value 0.001394
-    ## iter  13 value 0.001394
-    ## iter  14 value 0.001394
-    ## iter  14 value 0.001394
-    ## iter  14 value 0.001394
-    ## final  value 0.001394 
+    ## initial  value 1.279611 
+    ## iter   2 value 1.135596
+    ## iter   3 value 0.714057
+    ## iter   4 value 0.460316
+    ## iter   5 value 0.240635
+    ## iter   6 value 0.043904
+    ## iter   7 value 0.000706
+    ## iter   8 value -0.007205
+    ## iter   9 value -0.007654
+    ## iter  10 value -0.007694
+    ## iter  11 value -0.007838
+    ## iter  12 value -0.007838
+    ## iter  13 value -0.007838
+    ## iter  13 value -0.007838
+    ## iter  13 value -0.007838
+    ## final  value -0.007838 
     ## converged
-    ## initial  value 0.024729 
-    ## iter   2 value 0.024310
-    ## iter   3 value 0.024088
-    ## iter   4 value 0.024014
-    ## iter   5 value 0.024014
-    ## iter   6 value 0.024014
-    ## iter   7 value 0.024014
-    ## iter   7 value 0.024014
-    ## iter   7 value 0.024014
-    ## final  value 0.024014 
+    ## initial  value -0.003209 
+    ## iter   2 value -0.003258
+    ## iter   3 value -0.003325
+    ## iter   4 value -0.003325
+    ## iter   5 value -0.003325
+    ## iter   5 value -0.003325
+    ## iter   5 value -0.003325
+    ## final  value -0.003325 
     ## converged
 
 ![](ARIMA_Coding_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
@@ -279,29 +276,29 @@ sarima(x.ar2, p = 2, d = 0, q = 0)
     ##     fixed = fixed, optim.control = list(trace = trc, REPORT = 1, reltol = tol))
     ## 
     ## Coefficients:
-    ##          ar1      ar2   xmean
-    ##       1.5669  -0.8215  0.3137
-    ## s.e.  0.0413   0.0411  0.2825
+    ##          ar1      ar2    xmean
+    ##       1.5784  -0.8348  -0.2111
+    ## s.e.  0.0376   0.0374   0.2729
     ## 
-    ## sigma^2 estimated as 1.031:  log likelihood = -288.59,  aic = 585.18
+    ## sigma^2 estimated as 0.975:  log likelihood = -283.12,  aic = 574.25
     ## 
     ## $degrees_of_freedom
     ## [1] 197
     ## 
     ## $ttable
     ##       Estimate     SE  t.value p.value
-    ## ar1     1.5669 0.0413  37.9617  0.0000
-    ## ar2    -0.8215 0.0411 -19.9741  0.0000
-    ## xmean   0.3137 0.2825   1.1103  0.2682
+    ## ar1     1.5784 0.0376  41.9721  0.0000
+    ## ar2    -0.8348 0.0374 -22.3075  0.0000
+    ## xmean  -0.2111 0.2729  -0.7736  0.4401
     ## 
     ## $AIC
-    ## [1] 2.925904
+    ## [1] 2.871226
     ## 
     ## $AICc
-    ## [1] 2.926517
+    ## [1] 2.871838
     ## 
     ## $BIC
-    ## [1] 2.991871
+    ## [1] 2.937192
 
 Looks good\! Prentend that you really didn’t know the model order and
 the correlation plots were not that helpful. Noodle around with some
@@ -338,14 +335,14 @@ sarima.for(xdata = x.ar2, n.ahead = 3, p = 2, d = 0, q = 0)
     ## Start = 201 
     ## End = 203 
     ## Frequency = 1 
-    ## [1] 2.233822 3.133827 3.155114
+    ## [1] -3.3987224 -2.3431190 -0.9154424
     ## 
     ## $se
     ## Time Series:
     ## Start = 201 
     ## End = 203 
     ## Frequency = 1 
-    ## [1] 1.015143 1.886926 2.512073
+    ## [1] 0.9874186 1.8450229 2.4657638
 
 Play around with the number of forecasted points. What happens as you
 increase it? If you have different data (in either model order and/or
@@ -378,11 +375,11 @@ auto.arima(x.ms)
     ## 
     ## Coefficients:
     ##          ma1      ma2
-    ##       0.0434  -0.2698
-    ## s.e.  0.0670   0.0628
+    ##       0.1445  -0.2121
+    ## s.e.  0.0697   0.0679
     ## 
-    ## sigma^2 estimated as 3.99:  log likelihood=-421.24
-    ## AIC=848.48   AICc=848.61   BIC=858.38
+    ## sigma^2 estimated as 4.07:  log likelihood=-423.2
+    ## AIC=852.4   AICc=852.53   BIC=862.3
 
 Feel free to change the simulated data and see how the model selection
 works on models of different complexity. You might notice that the
@@ -427,31 +424,23 @@ regression with the correlated predictor
 sarima(x.cor, p = 2, d = 0, q = 0, xreg = cov1)
 ```
 
-    ## initial  value -0.377764 
-    ## iter   2 value -0.384479
-    ## iter   3 value -0.386940
-    ## iter   4 value -0.390865
-    ## iter   5 value -0.391270
-    ## iter   6 value -0.391292
-    ## iter   7 value -0.391293
-    ## iter   8 value -0.391293
-    ## iter   9 value -0.391294
-    ## iter  10 value -0.391294
-    ## iter  10 value -0.391294
-    ## final  value -0.391294 
+    ## initial  value -0.413406 
+    ## iter   2 value -0.415898
+    ## iter   3 value -0.416263
+    ## iter   4 value -0.416535
+    ## iter   5 value -0.416537
+    ## iter   6 value -0.416537
+    ## iter   6 value -0.416537
+    ## iter   6 value -0.416537
+    ## final  value -0.416537 
     ## converged
-    ## initial  value -0.390338 
-    ## iter   2 value -0.390368
-    ## iter   3 value -0.390417
-    ## iter   4 value -0.390422
-    ## iter   5 value -0.390426
-    ## iter   6 value -0.390430
-    ## iter   7 value -0.390432
-    ## iter   8 value -0.390432
-    ## iter   9 value -0.390432
-    ## iter   9 value -0.390432
-    ## iter   9 value -0.390432
-    ## final  value -0.390432 
+    ## initial  value -0.420860 
+    ## iter   2 value -0.420862
+    ## iter   3 value -0.420862
+    ## iter   4 value -0.420862
+    ## iter   4 value -0.420862
+    ## iter   4 value -0.420862
+    ## final  value -0.420862 
     ## converged
 
 ![](ARIMA_Coding_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
@@ -465,29 +454,29 @@ sarima(x.cor, p = 2, d = 0, q = 0, xreg = cov1)
     ## 
     ## Coefficients:
     ##          ar1     ar2  intercept    xreg
-    ##       0.1983  0.1051     0.0013  0.5778
-    ## s.e.  0.1030  0.0800     0.0688  0.0252
+    ##       0.0781  0.0394    -0.1342  0.6283
+    ## s.e.  0.0793  0.0727     0.0535  0.0140
     ## 
-    ## sigma^2 estimated as 0.4578:  log likelihood = -205.7,  aic = 421.4
+    ## sigma^2 estimated as 0.4309:  log likelihood = -199.62,  aic = 409.23
     ## 
     ## $degrees_of_freedom
     ## [1] 196
     ## 
     ## $ttable
     ##           Estimate     SE t.value p.value
-    ## ar1         0.1983 0.1030  1.9255  0.0556
-    ## ar2         0.1051 0.0800  1.3132  0.1906
-    ## intercept   0.0013 0.0688  0.0189  0.9850
-    ## xreg        0.5778 0.0252 22.9519  0.0000
+    ## ar1         0.0781 0.0793  0.9850  0.3258
+    ## ar2         0.0394 0.0727  0.5423  0.5882
+    ## intercept  -0.1342 0.0535 -2.5075  0.0130
+    ## xreg        0.6283 0.0140 44.9706  0.0000
     ## 
     ## $AIC
-    ## [1] 2.107013
+    ## [1] 2.046153
     ## 
     ## $AICc
-    ## [1] 2.108038
+    ## [1] 2.047179
     ## 
     ## $BIC
-    ## [1] 2.189471
+    ## [1] 2.128611
 
 The *p*-value on `xreg` is reported as 0, suggesting that `cov1`
 provides a significant effect, which is esimated to be 0.604.
@@ -499,36 +488,36 @@ Now with the uncorrelated predictor.
 sarima(x.cor, p = 2, d = 0, q = 0, xreg = cov2)
 ```
 
-    ## initial  value 0.886427 
-    ## iter   2 value 0.742974
-    ## iter   3 value 0.367748
-    ## iter   4 value 0.169141
-    ## iter   5 value 0.062284
-    ## iter   6 value -0.009353
-    ## iter   7 value -0.028670
-    ## iter   8 value -0.033882
-    ## iter   9 value -0.036551
-    ## iter  10 value -0.036563
-    ## iter  11 value -0.036564
-    ## iter  12 value -0.036570
-    ## iter  13 value -0.036571
-    ## iter  14 value -0.036573
-    ## iter  15 value -0.036573
-    ## iter  15 value -0.036573
-    ## iter  15 value -0.036573
-    ## final  value -0.036573 
+    ## initial  value 1.007914 
+    ## iter   2 value 0.854942
+    ## iter   3 value 0.484969
+    ## iter   4 value 0.257928
+    ## iter   5 value 0.108871
+    ## iter   6 value 0.063162
+    ## iter   7 value 0.042976
+    ## iter   8 value 0.039219
+    ## iter   9 value 0.039059
+    ## iter  10 value 0.039051
+    ## iter  11 value 0.039051
+    ## iter  12 value 0.039047
+    ## iter  13 value 0.039046
+    ## iter  14 value 0.039046
+    ## iter  15 value 0.039045
+    ## iter  15 value 0.039045
+    ## iter  15 value 0.039045
+    ## final  value 0.039045 
     ## converged
-    ## initial  value -0.029100 
-    ## iter   2 value -0.029104
-    ## iter   3 value -0.029110
-    ## iter   4 value -0.029118
-    ## iter   5 value -0.029119
-    ## iter   6 value -0.029120
-    ## iter   7 value -0.029120
-    ## iter   8 value -0.029120
-    ## iter   8 value -0.029120
-    ## iter   8 value -0.029120
-    ## final  value -0.029120 
+    ## initial  value 0.043419 
+    ## iter   2 value 0.043414
+    ## iter   3 value 0.043400
+    ## iter   4 value 0.043394
+    ## iter   5 value 0.043393
+    ## iter   6 value 0.043392
+    ## iter   7 value 0.043392
+    ## iter   8 value 0.043392
+    ## iter   8 value 0.043392
+    ## iter   8 value 0.043392
+    ## final  value 0.043392 
     ## converged
 
 ![](ARIMA_Coding_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
@@ -541,30 +530,30 @@ sarima(x.cor, p = 2, d = 0, q = 0, xreg = cov2)
     ##     REPORT = 1, reltol = tol))
     ## 
     ## Coefficients:
-    ##          ar1      ar2  intercept    xreg
-    ##       1.4086  -0.6891     0.1727  0.0031
-    ## s.e.  0.0509   0.0508     0.2526  0.0142
+    ##          ar1      ar2  intercept     xreg
+    ##       1.4447  -0.7022    -0.5394  -0.0025
+    ## s.e.  0.0500   0.0500     0.2970   0.0163
     ## 
-    ## sigma^2 estimated as 0.9318:  log likelihood = -277.96,  aic = 565.93
+    ## sigma^2 estimated as 1.076:  log likelihood = -292.47,  aic = 594.93
     ## 
     ## $degrees_of_freedom
     ## [1] 196
     ## 
     ## $ttable
     ##           Estimate     SE  t.value p.value
-    ## ar1         1.4086 0.0509  27.6867  0.0000
-    ## ar2        -0.6891 0.0508 -13.5537  0.0000
-    ## intercept   0.1727 0.2526   0.6838  0.4949
-    ## xreg        0.0031 0.0142   0.2194  0.8265
+    ## ar1         1.4447 0.0500  28.8734  0.0000
+    ## ar2        -0.7022 0.0500 -14.0452  0.0000
+    ## intercept  -0.5394 0.2970  -1.8165  0.0708
+    ## xreg       -0.0025 0.0163  -0.1536  0.8781
     ## 
     ## $AIC
-    ## [1] 2.829638
+    ## [1] 2.974661
     ## 
     ## $AICc
-    ## [1] 2.830663
+    ## [1] 2.975686
     ## 
     ## $BIC
-    ## [1] 2.912096
+    ## [1] 3.057119
 
 The *p*-value on `xreg` is large, suggesting that `cov2` provides no
 real effect, which is esimated to be 0.0063.
