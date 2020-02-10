@@ -175,6 +175,7 @@ e\_t](https://latex.codecogs.com/png.latex?y_t%20%3D%20%5Cmathbf%7BX%7D%5ET_t%20
 ![\\mathbf{\\theta}\_t = \\mathbf{G} \\mathbf{\\theta}\_{t-1} +
 \\mathbf{w}\_t](https://latex.codecogs.com/png.latex?%5Cmathbf%7B%5Ctheta%7D_t%20%3D%20%5Cmathbf%7BG%7D%20%5Cmathbf%7B%5Ctheta%7D_%7Bt-1%7D%20%2B%20%5Cmathbf%7Bw%7D_t
 "\\mathbf{\\theta}_t = \\mathbf{G} \\mathbf{\\theta}_{t-1} + \\mathbf{w}_t")  
+Note that this equation may take different forms with different symbols.
 
 ### DLM Example Equations
 
