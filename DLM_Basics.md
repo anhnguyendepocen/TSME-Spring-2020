@@ -17,6 +17,8 @@ independently estimated.
 
 A classic SSM application is population modeling.
 
+SSM properties:
+
   - Autoregressive process (i.e., Markovian)
   - Observations are imperfect
   - Observation and state are correlated (a large true population
@@ -67,6 +69,8 @@ From Auger-Methe (2020)
 Dynamic linear models are a subset of state-space models, but for our
 purposes we won’t get into the details of any differences. Think of them
 as a very popular flavor of SSMs.
+
+DLMs can be conceptually simple, but technically complex.
 
 In order to start thinking about dynamic linear models (DLMs), let’s
 recall a linear model.
@@ -142,7 +146,7 @@ estimating a linear regression and each observation
 parameters? For example, how would you estimate a slope with only one
 point?
 
-The solution is that we add onbservations (information) from previous
+The solution is that we add observations (information) from previous
 time steps. This lagging effect can be expressed as
 
   
@@ -172,17 +176,6 @@ e\_t](https://latex.codecogs.com/png.latex?y_t%20%3D%20%5Cmathbf%7BX%7D%5ET_t%20
 \\mathbf{w}\_t](https://latex.codecogs.com/png.latex?%5Cmathbf%7B%5Ctheta%7D_t%20%3D%20%5Cmathbf%7BG%7D%20%5Cmathbf%7B%5Ctheta%7D_%7Bt-1%7D%20%2B%20%5Cmathbf%7Bw%7D_t
 "\\mathbf{\\theta}_t = \\mathbf{G} \\mathbf{\\theta}_{t-1} + \\mathbf{w}_t")  
 
-White translates to the DLM form
-
-  
-![y\_t = \\mathbf{Z}\_t \\mathbf{X}\_t +
-\\nu\_t](https://latex.codecogs.com/png.latex?y_t%20%3D%20%5Cmathbf%7BZ%7D_t%20%5Cmathbf%7BX%7D_t%20%2B%20%5Cnu_t
-"y_t = \\mathbf{Z}_t \\mathbf{X}_t + \\nu_t")  
-  
-![x\_t = \\mathbf{B}\_t \\mathbf{x}\_{t-1} +
-\\mathbf{w}\_t](https://latex.codecogs.com/png.latex?x_t%20%3D%20%5Cmathbf%7BB%7D_t%20%5Cmathbf%7Bx%7D_%7Bt-1%7D%20%2B%20%5Cmathbf%7Bw%7D_t
-"x_t = \\mathbf{B}_t \\mathbf{x}_{t-1} + \\mathbf{w}_t")  
-
 ### DLM Example Equations
 
 Let’s recall two ideas that were mentioned in ARIMA but are built
@@ -205,7 +198,7 @@ wn <- rnorm(100,10,3)
 plot.ts(wn, las=1)
 ```
 
-![](DLM_Basics_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](DLM_Basics_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 #### Random Walk
 
@@ -228,9 +221,9 @@ for (i in 2:t) {
 plot.ts(x, ylab = expression(italic(x[t])))
 ```
 
-![](DLM_Basics_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](DLM_Basics_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
-Now let’s look at some simple DLMs not to focus on the equation, but to
+Now let’s look at some simple DLMs not to focus on the equations, but to
 see how the equations build in more features.
 
 #### Expanding the Stochastic Intercept Model
