@@ -220,7 +220,7 @@ set.seed(20)
 t <- 100
 ## initialize {x_t} and {w_t}
 x <- w <- rnorm(n = t, mean = 0, sd = 1)
-## compute values 2 thru TT
+## compute values 2 thru t
 for (i in 2:t) {
     x[i] <- x[i - 1] + w[i]
 }
