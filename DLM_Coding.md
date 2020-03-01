@@ -147,3 +147,34 @@ buildFun <- function(x) {
   return(dlm_Test) 
 }
 ```
+
+``` r
+dlm.dat <- ts(marss.dat)
+(dlm_fit <- dlmMLE(dlm.dat[,-1], parm = rep(0,3), build = buildFun))$conv
+```
+
+    ## [1] 0
+
+``` r
+dlm_fit2 <- buildFun(dlm_fit$par)
+drop(V(dlm_fit2))
+```
+
+    ## [1] 0.2222885
+
+``` r
+diag(W(dlm_fit2))[1:2]
+```
+
+    ## [1] 2.34335921 0.06583487
+
+``` r
+Filt1 <- dlmFilter(dlm.dat[,-1], mod = dlm_fit2)
+plot(dlm.dat[,-1], col = "red")
+lines(dropFirst(Filt1$m[,-2]), type = "o", pch = 20, col = "blue",add = T)
+```
+
+    ## Warning in plot.xy(xy.coords(x, y), type = type, ...): "add" is not a graphical
+    ## parameter
+
+![](DLM_Coding_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
