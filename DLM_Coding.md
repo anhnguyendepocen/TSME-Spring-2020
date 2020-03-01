@@ -46,7 +46,7 @@ plot(obs ~ date,
 
 ![](DLM_Coding_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
-### MARSS Model
+### `MARSS` Model
 
 The most simple DLM is a stochastic level model, where the level is a
 random walk without drift, and this level is observed with error. We
@@ -131,3 +131,5 @@ marss_plot
 ```
 
 ![](DLM_Coding_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+### `dlm`Model
