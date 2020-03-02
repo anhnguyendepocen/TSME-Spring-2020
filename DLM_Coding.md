@@ -56,8 +56,12 @@ to a matrix, and then bundle some MARSS model components together that
 will go into the model. The matrices in `mod_list` are all matrices that
 MARSS models require and the creation of them below represents their
 most basic form (i.e., these matrices can be modified for more complex
-models). You are encouraged to read more about these matrices and what
-they do (`?MARSS.marxss`), but details about them go beyond what we will
+models). The **B**, **U**, and **Q** matrices are for the state-process
+parameters. **Z** and **a** are not always required, but used with data
+that includes multiple observations of the state processes. **R** is a
+matrix for the correlation structure. You are encouraged to read more
+about these matrices and what they do (`?MARSS.marxss`), but details
+about them go beyond what we will
 cover.
 
 ``` r
@@ -119,6 +123,11 @@ library(ggplot2)
 
 ``` r
 marss_plot.d <- augment(marss.fit, interval="confidence")
+```
+
+    ## MARSSresiduals.tT reported warnings. See msg element of returned residuals object.
+
+``` r
 marss_plot <- ggplot(data = marss_plot.d) +
   geom_line(aes(t, .fitted)) +
   geom_point(aes(t, y)) + ylim(-20,20) +
@@ -139,42 +148,103 @@ linear models using Bayesian estimation. We will skip what Bayesian
 estimation is, suffice it say that for our example we should see
 comparable model fits. We will use the same data set.
 
-``` r
-dlm_Test <- dlmModPoly()
-buildFun <- function(x) {
-  diag(W(dlm_Test))[1:2] <- exp(x[1:2])
-  V(dlm_Test) <- exp(x[3])
-  return(dlm_Test) 
-}
-```
+We are going to use `dlmModReg`, which creates a dynamic linear
+regressiong with our decline. There are other functions available for
+your
+data:
+
+| `dlm` function | Description                                                                  |
+| -------------- | ---------------------------------------------------------------------------- |
+| `dlmModARMA`   | Fit DLM to ARMA process                                                      |
+| `dlmModPoly`   | *n*th order Polynomial                                                       |
+| `dlmModSeas`   | Periodic seasonal factors                                                    |
+| `dlmModTrig`   | Periodic Trigonometric functions                                             |
+| `dlmSmooth`    | Computes means and variances of smoothing distributions (so same throughout) |
 
 ``` r
-dlm.dat <- ts(marss.dat)
-(dlm_fit <- dlmMLE(dlm.dat[,-1], parm = rep(0,3), build = buildFun))$conv
+#dV is diagonal matrix of obs variance. dW is matrix of evolution matrix
+First_DLM <- dlmModReg(sim.df$obs, dV = 14.5)
+plot(sim.df)
+lines(dropFirst(First_DLM$X), type = "o", pch = 20, col = "brown")
+```
+
+![](DLM_Coding_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+But we won’t always know the variances to tell the model, so we can
+estimate them using `dlmMLE`
+
+``` r
+buildFun <- function (x) {
+  dlmModReg(x, dV = exp(x[1]))
+}
+
+fit1 <- dlmMLE(sim.df$obs, parm = c(0), build = buildFun)
+fit1$convergence
 ```
 
     ## [1] 0
 
 ``` r
-dlm_fit2 <- buildFun(dlm_fit$par)
-drop(V(dlm_fit2))
+fit1$par
 ```
 
-    ## [1] 0.2222885
+    ## [1] 2.619665
 
 ``` r
-diag(W(dlm_fit2))[1:2]
+Reg_Est <- buildFun(fit1$par)
+V(Reg_Est) #Get estimate for variance
 ```
 
-    ## [1] 2.34335921 0.06583487
+    ##          [,1]
+    ## [1,] 13.73113
 
 ``` r
-Filt1 <- dlmFilter(dlm.dat[,-1], mod = dlm_fit2)
-plot(dlm.dat[,-1], col = "red")
-lines(dropFirst(Filt1$m[,-2]), type = "o", pch = 20, col = "blue",add = T)
+Sec_DLM <- dlmModReg(sim.df$obs,dV = V(Reg_Est)) 
+#Add predicted variance value
+plot(sim.df)
+lines(dropFirst(First_DLM$X), type = "o", pch = 20, col = "brown")
 ```
 
-    ## Warning in plot.xy(xy.coords(x, y), type = type, ...): "add" is not a graphical
-    ## parameter
+![](DLM_Coding_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
-![](DLM_Coding_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+Now add second variance and do with a *n*th order polynomial
+
+``` r
+#Use log transformed variance to ensure positivity
+buildFun2 <- function (x) {
+  dlmModPoly(1, dV = exp(x[1]), dW = exp(x[2]))
+}
+#First order, random walk model. Can expand this, but then must adjust dV and dW matrices as well. Default is 2 for a linear model
+
+#Start optimization at the arbitrary 0,0 and let MLE find parameters of interest
+fit2 <- dlmMLE(Nile, parm = c(0,0), build = buildFun2)
+fit2$conv
+```
+
+    ## [1] 0
+
+``` r
+dlmNile <- buildFun(fit2$par) #Plug estimated values into model
+V(dlmNile) #Check variances
+```
+
+    ##         [,1]
+    ## [1,] 15099.8
+
+``` r
+W(dlmNile)
+```
+
+    ##      [,1] [,2]
+    ## [1,]    0    0
+    ## [2,]    0    0
+
+The W matrix above is not yet correct so the below code does not run.
+
+``` r
+NileFilt <- dlmFilter(Nile, dlmNile)
+plot(Nile, type = 'o', col = "seagreen")
+lines(NileFilt$m, type = 'o', pch = 20, col = "brown")
+```
+
+Can use `dlmForecast` to predict future values.
