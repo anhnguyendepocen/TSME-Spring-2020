@@ -174,11 +174,11 @@ But we won’t always know the variances to tell the model, so we can
 estimate them using `dlmMLE`
 
 ``` r
-buildFun <- function (x) {
+buildFun2 <- function (x) {
   dlmModReg(x, dV = exp(x[1]))
 }
 
-fit1 <- dlmMLE(sim.df$obs, parm = c(0), build = buildFun)
+fit1 <- dlmMLE(sim.df$obs, parm = c(0), build = buildFun2)
 fit1$convergence
 ```
 
@@ -191,7 +191,7 @@ fit1$par
     ## [1] 2.619665
 
 ``` r
-Reg_Est <- buildFun(fit1$par)
+Reg_Est <- buildFun2(fit1$par)
 V(Reg_Est) #Get estimate for variance
 ```
 
@@ -211,13 +211,13 @@ Now add second variance and do with a *n*th order polynomial
 
 ``` r
 #Use log transformed variance to ensure positivity
-buildFun2 <- function (x) {
+buildFun <- function (x) {
   dlmModPoly(1, dV = exp(x[1]), dW = exp(x[2]))
 }
 #First order, random walk model. Can expand this, but then must adjust dV and dW matrices as well. Default is 2 for a linear model
 
 #Start optimization at the arbitrary 0,0 and let MLE find parameters of interest
-fit2 <- dlmMLE(Nile, parm = c(0,0), build = buildFun2)
+fit2 <- dlmMLE(Nile, parm = c(0,0), build = buildFun)
 fit2$conv
 ```
 
@@ -235,16 +235,17 @@ V(dlmNile) #Check variances
 W(dlmNile)
 ```
 
-    ##      [,1] [,2]
-    ## [1,]    0    0
-    ## [2,]    0    0
+    ##          [,1]
+    ## [1,] 1468.432
 
-The W matrix above is not yet correct so the below code does not run.
+Now plot the data with the model.
 
 ``` r
 NileFilt <- dlmFilter(Nile, dlmNile)
 plot(Nile, type = 'o', col = "seagreen")
 lines(NileFilt$m, type = 'o', pch = 20, col = "brown")
 ```
+
+![](DLM_Coding_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 Can use `dlmForecast` to predict future values.
