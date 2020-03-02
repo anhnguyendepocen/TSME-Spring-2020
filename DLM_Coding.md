@@ -33,15 +33,11 @@ date <- 1:20
 sim.df <- data.table(date, obs)
 ```
 
-And let’s make sure it looks like what we think we coded.
+And let’s make sure it looks like what we think we
+coded.
 
 ``` r
-plot(obs ~ date, 
-     data = sim.df,
-     ylim = c(-15,5),
-     pch = 19,
-     type = 'b',
-     las = 1)
+plot(obs ~ date, data = sim.df,ylim = c(-15,5),pch = 19,type = 'b',las = 1)
 ```
 
 ![](DLM_Coding_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
@@ -123,11 +119,6 @@ library(ggplot2)
 
 ``` r
 marss_plot.d <- augment(marss.fit, interval="confidence")
-```
-
-    ## MARSSresiduals.tT reported warnings. See msg element of returned residuals object.
-
-``` r
 marss_plot <- ggplot(data = marss_plot.d) +
   geom_line(aes(t, .fitted)) +
   geom_point(aes(t, y)) + ylim(-20,20) +
