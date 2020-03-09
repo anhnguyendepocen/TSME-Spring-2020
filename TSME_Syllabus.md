@@ -192,4 +192,8 @@ capacity.
 
 ## Readings
 
-1.
+1. Ives, A. R., Abbott, K. C., & Ziebarth, N. L. (2010). Analysis of ecological time series with ARMA (*p*, *q*) models. *Ecology*, 91(3), 858--871. 
+
+2. Wagner, T., Irwin, B. J., Bence, J. R., & Hayes, D. B. (2013). Detecting temporal trends in freshwater fisheries surveys: statistical power and the important linkages between management questions and monitoring objectives. *Fisheries*, 38(7), 309--319.
+
+3. Zuur, A. F., Tuck, I. D., & Bailey, N. (2003). Dynamic factor analysis to estimate common trends in fisheries time series. *Canadian Journal of Fisheries and Aquatic Sciences*, 60(5), 542--552
