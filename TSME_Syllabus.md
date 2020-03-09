@@ -181,7 +181,7 @@ capacity.
 | 17 February | DLM Reading                                                                                             |
 | 24 February | OFF (Mardi Gras)                                                                                        |
 | 2 March     | DLM Coding                                                                                              |
-| 9 March     | DFA Intro                                                                                               |
+| 9 March     | Changepoint Models                                                                                      |
 | 16 March    | DFA Reading                                                                                             |
 | 23 March    | OFF (Spring Break)                                                                                      |
 | 30 March    | DFA Coding                                                                                              |
