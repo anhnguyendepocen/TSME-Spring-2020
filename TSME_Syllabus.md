@@ -184,10 +184,10 @@ capacity.
 | 9 March     | Changepoint Models                                                                                      |
 | 16 March    | DFA Reading                                                                                             |
 | 23 March    | OFF (Spring Break)                                                                                      |
-| 30 March    | DFA Coding                                                                                              |
-| 6 April     | GAM Intro                                                                                               |
+| 30 March    | GAM Intro                                                                                               |
+| 6 April     | GAM Reading                                                                                             |
 | 13 April    | OFF? (Midway Away)                                                                                      |
-| 20 April    | GAM Reading                                                                                             |
+| 20 April    | GAM Coding                                                                                              |
 | 27 April    | GAM Coding                                                                                              |
 
 ## Readings
