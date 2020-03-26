@@ -182,11 +182,11 @@ capacity.
 | 24 February | OFF (Mardi Gras)                                                                                        |
 | 2 March     | DLM Coding                                                                                              |
 | 9 March     | Changepoint Models                                                                                      |
-| 16 March    | DFA Reading                                                                                             |
+| 16 March    | OFF (CoronaVirus Response)                                                                              |
 | 23 March    | OFF (Spring Break)                                                                                      |
-| 30 March    | GAM Intro                                                                                               |
-| 6 April     | GAM Reading                                                                                             |
-| 13 April    | OFF? (Midway Away)                                                                                      |
+| 30 March    | DFA Reading                                                                                             |
+| 6 April     | GAM Intro                                                                                               |
+| 13 April    | GAM Reading                                                                                             |
 | 20 April    | GAM Coding                                                                                              |
 | 27 April    | GAM Coding                                                                                              |
 
